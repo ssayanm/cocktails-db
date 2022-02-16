@@ -17,18 +17,6 @@ const AppProvider = ({ children }) => {
       const data = await response.json();
       const { drinks } = data;
 
-      const paginate = (data) => {
-        const itemsPerPage = 5;
-        const numberOfPages = Math.ceil(data.length / itemsPerPage);
-
-        const newData = Array.from({ length: numberOfPages }, (_, index) => {
-          const start = index * itemsPerPage;
-          return data.slice(start, start + itemsPerPage);
-        });
-
-        return newData;
-      };
-
       if (drinks) {
         const newCocktails = drinks.map((item) => {
           const { idDrink, strDrink, strDrinkThumb, strAlcoholic, strGlass } =
@@ -42,8 +30,8 @@ const AppProvider = ({ children }) => {
             glass: strGlass,
           };
         });
-        console.log(paginate(newCocktails)[1]);
-        setCocktails(paginate(newCocktails)[2]);
+
+        setCocktails(newCocktails);
       } else {
         setCocktails([]);
       }

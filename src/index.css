@@ -518,3 +518,13 @@ Pagination
     max-width: 700px;
   }
 }
+
+.pagii {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagii li {
+  padding: 10px;
+}
