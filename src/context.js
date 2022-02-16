@@ -1,8 +1,9 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, createContext } from "react";
 import { useCallback } from "react";
+// import paginate from "./pageUtils";
 
 const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
-const AppContext = React.createContext();
+const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
@@ -15,6 +16,19 @@ const AppProvider = ({ children }) => {
       const response = await fetch(`${url}${searchTerm}`);
       const data = await response.json();
       const { drinks } = data;
+
+      const paginate = (data) => {
+        const itemsPerPage = 5;
+        const numberOfPages = Math.ceil(data.length / itemsPerPage);
+
+        const newData = Array.from({ length: numberOfPages }, (_, index) => {
+          const start = index * itemsPerPage;
+          return data.slice(start, start + itemsPerPage);
+        });
+
+        return newData;
+      };
+
       if (drinks) {
         const newCocktails = drinks.map((item) => {
           const { idDrink, strDrink, strDrinkThumb, strAlcoholic, strGlass } =
@@ -28,7 +42,8 @@ const AppProvider = ({ children }) => {
             glass: strGlass,
           };
         });
-        setCocktails(newCocktails);
+        console.log(paginate(newCocktails)[1]);
+        setCocktails(paginate(newCocktails)[2]);
       } else {
         setCocktails([]);
       }

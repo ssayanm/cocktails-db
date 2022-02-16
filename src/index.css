@@ -4,8 +4,8 @@ Variables
 ======
 */
 :root {
-  --primaryLightColor: #d4e6a5;
-  --primaryColor: #476a2e;
+  --primaryLightColor: #8c63bc;
+  --primaryColor: #981ee4;
   --primaryDarkColor: #c02c03;
   --mainWhite: #fff;
   --offWhite: #f7f7f7;
@@ -36,8 +36,8 @@ Global Styles
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: var(--mainBlack);
   background: var(--mainBackground);
   line-height: 1.4;
@@ -89,6 +89,7 @@ Buttons
   background: transparent;
   border-radius: var(--mainBorderRadius);
   display: inline-block;
+  font-weight: bold;
 }
 .btn:hover {
   background: var(--primaryColor);
@@ -375,7 +376,7 @@ Cocktail
 .loader:after {
   position: absolute;
   top: 0;
-  content: '';
+  content: "";
 }
 .loader:before {
   left: -1.5em;
@@ -407,5 +408,113 @@ Cocktail
   40% {
     box-shadow: 0 -2em;
     height: 5em;
+  }
+}
+
+/*
+=============== 
+Pagination
+===============
+*/
+.pagination {
+  padding: 8rem 0;
+
+  min-height: 100vh;
+}
+
+.psection-title {
+  text-align: center;
+  margin: 4rem 0 6rem 0;
+}
+.punderline {
+  width: 8rem;
+  height: 0.25rem;
+  background: var(--clr-primary-5);
+  margin: 0 auto;
+}
+.pfollowers {
+  width: 90vw;
+  max-width: var(--max-width);
+  margin: 5rem auto;
+}
+.pcontainer {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+@media screen and (min-width: 576px) {
+  .pcontainer {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+.pcard {
+  background: var(--clr-white);
+  border-radius: var(--radius);
+  box-shadow: var(--light-shadow);
+  padding: 2rem 3.5rem;
+  text-align: center;
+}
+.pcard img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.75rem;
+}
+
+.pcard h4 {
+  margin-bottom: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--clr-grey-5);
+}
+
+.pbtn {
+  padding: 0.35rem 0.75rem;
+  letter-spacing: 1.6px;
+  font-size: 0.75rem;
+  color: var(--clr-white);
+  background: var(--clr-primary-5);
+  border-radius: var(--radius);
+  border-color: transparent;
+  text-transform: uppercase;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.pbtn-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.ppage-btn {
+  width: 2rem;
+  height: 2rem;
+  background: var(--clr-primary-7);
+  border-color: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0.5rem;
+  transition: var(--transition);
+}
+.pactive-btn {
+  background: var(--clr-primary-1);
+  color: var(--clr-white);
+}
+.pprev-btn,
+.pnext-btn {
+  background: transparent;
+  border-color: transparent;
+  font-weight: bold;
+  text-transform: capitalize;
+  letter-spacing: var(--spacing);
+  margin: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 775px) {
+  .pbtn-container {
+    margin: 0 auto;
+    max-width: 700px;
   }
 }
