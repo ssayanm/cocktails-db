@@ -1,34 +1,53 @@
-// import { useState, useEffect } from "react";
-// // import paginate from "../utils/pageUtils";
+import { useState, useEffect } from "react";
 
-// const paginate = (followers) => {
-//   const itemsPerPage = 10;
-//   const numberOfPages = Math.ceil(followers.length / itemsPerPage);
+const paginate = (followers) => {
+  const itemsPerPage = 6;
+  const numberOfPages = Math.ceil(followers.length / itemsPerPage);
 
-//   const newFollowers = Array.from({ length: numberOfPages }, (_, index) => {
-//     const start = index * itemsPerPage;
-//     return followers.slice(start, start + itemsPerPage);
-//   });
+  const newFollowers = Array.from({ length: numberOfPages }, (_, index) => {
+    const start = index * itemsPerPage;
+    return followers.slice(start, start + itemsPerPage);
+  });
 
-//   return newFollowers;
-// };
+  return newFollowers;
+};
 
-// const url = "https://api.github.com/users/john-smilga/followers?per_page=100";
+const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
 
-// export const useFetch = () => {
-//   const [loading, setLoading] = useState(true);
-//   const [searchTerm, setSearchTerm] = useState("a");
-//   const [data, setData] = useState([]);
+export const useFetch = () => {
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("a");
 
-//   const getProducts = async () => {
-//     const response = await fetch(`${url}${searchTerm}`);
-//     const data = await response.json();
+  const getProducts = async () => {
+    const response = await fetch(`${url}${searchTerm}`);
+    const data = await response.json();
 
-//     const { drinks } = data;
+    const { drinks } = data;
 
-//     useEffect(() => {
-//       getProducts();
-//     }, []);
-//     return { loading, data };
-//   };
-// };
+    if (drinks) {
+      const newDrinks = drinks.map((item) => {
+        const { idDrink, strDrink, strDrinkThumb, strAlcoholic, strGlass } =
+          item;
+
+        return {
+          id: idDrink,
+          name: strDrink,
+          image: strDrinkThumb,
+          info: strAlcoholic,
+          glass: strGlass,
+        };
+      });
+
+      setData(paginate(newDrinks));
+      setLoading(false);
+    } else {
+      setData([]);
+    }
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+  return { loading, data };
+};

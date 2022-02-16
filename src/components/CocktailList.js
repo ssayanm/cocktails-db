@@ -1,6 +1,7 @@
 import Cocktail from "./Cocktail";
 import Loading from "./Loading";
 import { useGlobalContext } from "../context";
+import Pagination from "./Pagination";
 
 export default function CocktailList() {
   const { cocktails, loading } = useGlobalContext();
