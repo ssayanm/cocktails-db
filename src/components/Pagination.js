@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useFetch } from "../useFetch";
-import Follower from "../Follower";
 import Cocktail from "./Cocktail";
 
 const Pagination = () => {
@@ -11,7 +10,7 @@ const Pagination = () => {
   useEffect(() => {
     if (loading) return;
     setFollowers(data[page]);
-  }, [loading, page]);
+  }, [loading, page, data]);
 
   const nextPage = () => {
     setPage((oldPage) => {

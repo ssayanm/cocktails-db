@@ -32,6 +32,7 @@ const AppProvider = ({ children }) => {
         });
 
         setCocktails(newCocktails);
+        setLoading(false);
       } else {
         setCocktails([]);
       }
@@ -48,7 +49,7 @@ const AppProvider = ({ children }) => {
 
   return (
     <AppContext.Provider
-      value={{ loading, cocktails, searchTerm, setSearchTerm }}
+      value={{ loading, cocktails, searchTerm, setSearchTerm, setCocktails }}
     >
       {children}
     </AppContext.Provider>

@@ -48,6 +48,6 @@ export const useFetch = () => {
 
   useEffect(() => {
     getProducts();
-  }, []);
+  }, [data]);
   return { loading, data };
 };

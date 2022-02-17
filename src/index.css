@@ -424,7 +424,7 @@ Pagination
 
 .psection-title {
   text-align: center;
-  margin: 4rem 0 6rem 0;
+  /* margin: 4rem 0 6rem 0; */
 }
 .punderline {
   width: 8rem;

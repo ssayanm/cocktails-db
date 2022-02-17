@@ -1,7 +1,13 @@
-import Pagination from "./Pagination";
+import SearchForm from "../components/SearchForm";
+import Pagination from "../components/Pagination";
 
 const Filter = () => {
-  return <Pagination />;
+  return (
+    <>
+      <SearchForm />
+      <Pagination />;
+    </>
+  );
 };
 
 export default Filter;

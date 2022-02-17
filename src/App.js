@@ -8,7 +8,7 @@ import Error from "./pages/Error";
 // import components
 import Navbar from "./components/Navbar";
 import Pagi from "./components/pagi";
-import Pagination from "./components/Pagination";
+import Filter from "./pages/Filter";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
         <Route path="pagi" element={<Pagi itemsPerPage={6} />} />
         <Route path="cocktail/:id" element={<SingleCocktail />} />
         <Route path="*" element={<Error />} />
-        <Route path="filter" element={<Pagination />} />
+        <Route path="filter" element={<Filter />} />
       </Routes>
     </Router>
   );
