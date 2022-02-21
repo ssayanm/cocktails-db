@@ -6,14 +6,16 @@ import About from "./pages/About";
 import SingleCocktail from "./pages/SingleCocktail";
 import Error from "./pages/Error";
 // import components
-import Navbar from "./components/Navbar";
+// import Navbar from "./components/Navbar";
+import Nav from "./components/Nav";
 import Pagi from "./components/pagi";
 import Filter from "./pages/Filter";
 
 function App() {
   return (
     <Router>
-      <Navbar />
+      <Nav />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
