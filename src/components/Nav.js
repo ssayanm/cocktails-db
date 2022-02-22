@@ -5,12 +5,30 @@ import logo from "../logo.svg";
 // import "../styles/navbar.css";
 import { Link } from "react-router-dom";
 
+const getStorageTheme = () => {
+  let theme = "light-theme";
+  if (localStorage.getItem("theme")) {
+    theme = localStorage.getItem("theme");
+  }
+  return theme;
+};
+
 const Nav = () => {
   const [showLinks, setShowLinks] = useState(false);
+  const [theme, setTheme] = useState(getStorageTheme());
+
   const linksContainerRef = useRef(null);
   const linksRef = useRef(null);
   const toggleLinks = () => {
     setShowLinks(!showLinks);
+  };
+
+  const toggleTheme = () => {
+    if (theme === "light-theme") {
+      setTheme("dark-theme");
+    } else {
+      setTheme("light-theme");
+    }
   };
 
   useEffect(() => {
@@ -21,6 +39,11 @@ const Nav = () => {
       linksContainerRef.current.style.height = "0px";
     }
   }, [showLinks]);
+
+  useEffect(() => {
+    document.documentElement.className = theme;
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   return (
     <nav>
@@ -46,6 +69,9 @@ const Nav = () => {
           </ul>
         </div>
         <ul className="social-icons">
+          <button className="btn" onClick={toggleTheme}>
+            toggle
+          </button>
           {social.map((socialIcon) => {
             const { id, url, icon } = socialIcon;
             return (

@@ -5,11 +5,9 @@ Variables
 */
 :root {
   --primaryLightColor: #8c63bc;
-  --primaryColor: #981ee4;
   --primaryDarkColor: #c02c03;
-  --mainWhite: #fff;
+  /* --mainWhite: #fff; */
   --offWhite: #f7f7f7;
-  --mainBackground: #f1f5f8;
   --mainOverlay: rgba(35, 10, 36, 0.4);
   --mainBlack: #222;
   --mainGrey: #ececec;
@@ -24,11 +22,27 @@ Variables
   --maxWidth: 40rem;
   --fullWidth: 1170px;
 }
+
 /* 
 ====== 
 Global Styles 
 ======
 */
+
+.dark-theme {
+  --mainBackground: #282c35;
+  --mainBlack: #fff;
+  --primaryColor: #ffa7c4;
+  --mainWhite: #222;
+}
+
+.light-theme {
+  --mainBackground: #f1f5f8;
+  --mainBlack: #282c35;
+  --primaryColor: #981ee4;
+  --mainWhite: #fff;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -537,7 +551,7 @@ Pagination
 .punderline {
   width: 8rem;
   height: 0.25rem;
-  background: var(--clr-primary-5);
+  background: var(--primaryColor);
   margin: 0 auto;
 }
 .pfollowers {
@@ -581,7 +595,7 @@ Pagination
   letter-spacing: 1.6px;
   font-size: 0.75rem;
   color: var(--clr-white);
-  background: var(--clr-primary-5);
+  background: var(--primaryColor);
   border-radius: var(--radius);
   border-color: transparent;
   text-transform: uppercase;
@@ -597,7 +611,7 @@ Pagination
 .ppage-btn {
   width: 2rem;
   height: 2rem;
-  background: var(--clr-primary-7);
+  background: var(--primaryColor);
   border-color: transparent;
   border-radius: 5px;
   cursor: pointer;
@@ -605,7 +619,7 @@ Pagination
   transition: var(--transition);
 }
 .pactive-btn {
-  background: var(--clr-primary-1);
+  background: var(--primaryColor);
   color: var(--clr-white);
 }
 .pprev-btn,
@@ -618,6 +632,7 @@ Pagination
   margin: 0.5rem;
   font-size: 1rem;
   cursor: pointer;
+  color: var(--mainBlack);
 }
 
 @media screen and (min-width: 775px) {

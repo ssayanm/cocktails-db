@@ -17,34 +17,10 @@ export const links = [
   },
 
   {
-    id: 5,
-    url: "/grocery",
-    text: "Grocery",
-    icon: <FaHome />,
-  },
-  {
-    id: 6,
-    url: "/sidebar",
-    text: "Sidebar",
-    icon: <FaWpforms />,
-  },
-  {
     id: 7,
-    url: "/color",
-    text: "Color",
+    url: "/about",
+    text: "About",
     icon: <FaHome />,
-  },
-  {
-    id: 8,
-    url: "/stripe",
-    text: "Stripe",
-    icon: <FaHome />,
-  },
-  {
-    id: 9,
-    url: "/cart",
-    text: "Cart",
-    icon: <FaCartPlus />,
   },
 ];
 
